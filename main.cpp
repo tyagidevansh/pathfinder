@@ -50,59 +50,30 @@ public:
 
     void handleInput(sf::Event& event, sf::RenderWindow& window) {
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
-        while (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-            sf::Event mouseEvent;
-            while (window.pollEvent(mouseEvent)) {
-                if (mouseEvent.type == sf::Event::MouseButtonReleased && mouseEvent.mouseButton.button == sf::Mouse::Left) {
-                    break;
+            while (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                sf::Event mouseEvent;
+                while (window.pollEvent(mouseEvent)) {
+                    if (mouseEvent.type == sf::Event::MouseButtonReleased && mouseEvent.mouseButton.button == sf::Mouse::Left) {
+                        break;
+                    }
+                }
+
+                int i = sf::Mouse::getPosition(window).x / SQUARE;
+                int j = sf::Mouse::getPosition(window).y / SQUARE;
+
+                if (mouseEvent.type == sf::Event::KeyPressed) {
+                    if (mouseEvent.key.code == sf::Keyboard::S) {
+                        map[i][j] = Cell::start;
+                    }
+                    if (mouseEvent.key.code == sf::Keyboard::E) {
+                        map[i][j] = Cell::end;
+                    }
+
+                } else {
+                    map[i][j] = Cell::wall;
                 }
             }
-
-            int i = sf::Mouse::getPosition(window).x / SQUARE;
-            int j = sf::Mouse::getPosition(window).y / SQUARE;
-            map[i][j] = Cell::wall;
-            }
         }
-
-    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S 
-        && event.mouseButton.button == sf::Mouse::Left) {
-        if (starting.first == -1 && starting.second == -1) {
-            int i = event.mouseButton.x / SQUARE;
-            int j = event.mouseButton.y / SQUARE;
-
-            starting = {i, j};
-
-            map[i][j] = Cell::start;
-        } else {
-            map[starting.first][starting.second] = Cell::empty; 
-            int i = event.mouseButton.x / SQUARE;
-            int j = event.mouseButton.y / SQUARE;
-
-            starting = {i, j};
-
-            map[i][j] = Cell::start;
-        }
-    }
-        
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S 
-        && event.mouseButton.button == sf::Mouse::Left) {
-        if (starting.first == -1 && starting.second == -1) {
-            int i = event.mouseButton.x / SQUARE;
-            int j = event.mouseButton.y / SQUARE;
-
-            starting = {i, j};
-
-            map[i][j] = Cell::start;
-        } else {
-            map[starting.first][starting.second] = Cell::empty; 
-            int i = event.mouseButton.x / SQUARE;
-            int j = event.mouseButton.y / SQUARE;
-
-            starting = {i, j};
-
-            map[i][j] = Cell::start;
-        }
-    }
     }
 };
 
