@@ -61,8 +61,28 @@ public:
                 int i = sf::Mouse::getPosition(window).x / SQUARE;
                 int j = sf::Mouse::getPosition(window).y / SQUARE;
                 map[i][j] = Cell::wall;
-                
             }
+        }
+
+        if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Right) {
+            if (starting.first != -1 && starting.second != -1) {
+                map[starting.first][starting.second] = Cell::empty;
+            }     
+            int i = sf::Mouse::getPosition(window).x / SQUARE;
+            int j = sf::Mouse::getPosition(window).y / SQUARE;
+            map[i][j] = Cell::start;
+            starting = {i,j};
+            
+        }
+
+        if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Middle) {
+            if (ending.first != -1 && ending.second != -1){
+                map[ending.first][ending.second] = Cell::empty;
+            }
+            int i = sf::Mouse::getPosition(window).x / SQUARE;
+            int j = sf::Mouse::getPosition(window).y / SQUARE;
+            map[i][j] = Cell::end;
+            ending = {i,j};
         }
     }
 };
