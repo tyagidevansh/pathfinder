@@ -60,18 +60,8 @@ public:
 
                 int i = sf::Mouse::getPosition(window).x / SQUARE;
                 int j = sf::Mouse::getPosition(window).y / SQUARE;
-
-                if (mouseEvent.type == sf::Event::KeyPressed) {
-                    if (mouseEvent.key.code == sf::Keyboard::S) {
-                        map[i][j] = Cell::start;
-                    }
-                    if (mouseEvent.key.code == sf::Keyboard::E) {
-                        map[i][j] = Cell::end;
-                    }
-
-                } else {
-                    map[i][j] = Cell::wall;
-                }
+                map[i][j] = Cell::wall;
+                
             }
         }
     }
