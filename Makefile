@@ -3,7 +3,7 @@ CFLAGS = -I"C:\Users\devan\OneDrive\Documents\Libraries\SFML-2.6.1\include" -DSF
 LDFLAGS = -L"C:\Users\devan\OneDrive\Documents\Libraries\SFML-2.6.1\lib" -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lfreetype -lwinmm -lgdi32 -static
 
 # Source files
-SOURCES = main.cpp
+SOURCES = main.cpp grid.cpp BFS.cpp
 
 # Object files
 OBJECTS = $(SOURCES:.cpp=.o)
