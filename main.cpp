@@ -6,8 +6,8 @@
 int main() {
     sf::RenderWindow window(sf::VideoMode(1200, 800), "Pathfinder");
 
-    Grid grid;    
-    BFS bfs(grid);
+    //Grid grid;    
+    BFS bfs;
 
     while (window.isOpen()) {
         sf::Event event;
@@ -17,20 +17,18 @@ int main() {
         }
 
         if (event.type == sf::Event::MouseButtonPressed) {
-            grid.handleInput(event, window);
+            bfs.handleInput(event, window);
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-            printf("Spacebar clicked");
             if (bfs.checkStartEnd()) {
-                printf("start and end exist");
                 bfs.markPath();
             }
         } 
         
 
         window.clear();
-        grid.render(window);
+        bfs.render(window);
         window.display();
     }
     return 0;

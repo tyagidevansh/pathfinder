@@ -5,9 +5,10 @@
 
 class BFS : public Grid {
 public:
-    BFS(Grid& sharedGrid);
+    //BFS(Grid& sharedGrid);
+    BFS();
     bool checkStartEnd();
     bool isValid(int x, int y);
-    std::vector<std::pair<int, int>> shortestPath(std::pair<int, int> starting, std::pair<int, int> ending);
+    std::vector<std::pair<int, int>> shortestPath();
     void markPath();
 };

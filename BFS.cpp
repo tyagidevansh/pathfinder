@@ -1,17 +1,17 @@
 #include "headers\BFS.hpp"
+#include <algorithm>
 
-BFS::BFS(Grid& sharedGrid) : Grid(sharedGrid) {}
+BFS::BFS() : Grid() {}
 
 bool BFS::checkStartEnd() {
-    printf("%d %d", starting.first, starting.second);
     return (starting.first!= -1 && starting.second != -1 && ending.first != -1 && ending.second != -1);
 }
 
 bool BFS::isValid(int x, int y) {
-    return x >= 0 && x < COLS && y >= 0 && y < ROWS && map[x][y] == Cell::empty;
+    return x >= 0 && x < COLS && y >= 0 && y < ROWS && map[x][y] != Cell::wall;
 }
 
-std::vector<std::pair<int, int>> BFS::shortestPath(std::pair<int, int> starting, std::pair<int , int> ending) {
+std::vector<std::pair<int, int>> BFS::shortestPath() {
     std::vector<std::vector<bool>> visited(ROWS, std::vector<bool>(COLS, false));
     std::vector<std::vector<std::pair<int, int>>> parent(ROWS, std::vector<std::pair<int, int>>(COLS, {-1, -1}));
     std::queue<std::pair<int, int>> queue;
@@ -64,9 +64,8 @@ std::vector<std::pair<int, int>> BFS::shortestPath(std::pair<int, int> starting,
 }
 
 void BFS::markPath() {
-    std::vector<std::pair<int, int>> path = shortestPath(starting, ending);
+    std::vector<std::pair<int, int>> path = shortestPath();
     for (const auto& p : path) {
         map[p.first][p.second] = Cell::visited;
-        printf("%d %d", p.first, p.second);
     }
 }

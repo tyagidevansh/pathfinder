@@ -1,7 +1,8 @@
 #include "headers/grid.hpp"
 #include <SFML\Graphics.hpp>
 
-Grid::Grid() {
+Grid::Grid() :
+    starting {-1, -1}, ending {-1, -1} {
         for (size_t i = 0; i < COLS; i++) {
             for (size_t j = 0; j < ROWS; j++) {
                 map[i][j] = Cell::empty;
@@ -56,7 +57,6 @@ void Grid::handleInput(sf::Event& event, sf::RenderWindow& window) {
             int j = sf::Mouse::getPosition(window).y / SQUARE;
             map[i][j] = Cell::start;
             starting = {i,j};
-            printf("%d, %d ", starting.first, starting.second);
         }
 
         if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Middle) {
