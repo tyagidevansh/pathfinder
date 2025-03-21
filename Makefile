@@ -1,6 +1,6 @@
 CC = g++
-CFLAGS = -I"C:\Users\devan\OneDrive\Documents\Libraries\SFML-2.6.1\include" -DSFML_STATIC
-LDFLAGS = -L"C:\Users\devan\OneDrive\Documents\Libraries\SFML-2.6.1\lib" -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lfreetype -lwinmm -lgdi32 -static
+CFLAGS = -I"C:\Users\devan\Documents\Libraries\SFML-2.6.1\include" -DSFML_STATIC
+LDFLAGS = -L"C:\Users\devan\Documents\Libraries\SFML-2.6.1\lib" -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lfreetype -lwinmm -lgdi32 -static
 
 # Source files
 SOURCES = main.cpp grid.cpp BFS.cpp

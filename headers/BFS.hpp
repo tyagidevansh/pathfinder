@@ -9,6 +9,6 @@ public:
     BFS();
     bool checkStartEnd();
     bool isValid(int x, int y);
-    std::vector<std::pair<int, int>> shortestPath();
-    void markPath();
+    std::vector<std::pair<int, int>> shortestPath(sf::RenderWindow& window);
+    void markPath(sf::RenderWindow& window);
 };

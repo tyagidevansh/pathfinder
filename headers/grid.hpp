@@ -16,7 +16,8 @@ protected:
         wall,
         start,
         end,
-        visited
+        visited,
+        path
     };
     
     //defining the map matrix

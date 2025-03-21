@@ -4,7 +4,7 @@
       "name": "windows-gcc-x64",
       "includePath": [
         "${workspaceFolder}/**",
-        "C:\\Users\\devan\\OneDrive\\Documents\\Libraries\\SFML-2.6.1\\include"
+        "C:\\Users\\devan\\Documents\\Libraries\\SFML-2.6.1\\include"
       ],
       "compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
       "cStandard": "${default}",
